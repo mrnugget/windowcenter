@@ -1,0 +1,8 @@
+<schemalist>
+  <schema id="org.gnome.shell.extensions.com-thorstenball-windowcenter" path="/org/gnome/shell/extensions/com-thorstenball-windowcenter/">
+    <key type="as" name="center-window">
+      <default><![CDATA[['<Primary><Super>c']]]></default>
+      <summary>Center window and resize to roughly 80% of screen size</summary>
+    </key>
+  </schema>
+</schemalist>
