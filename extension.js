@@ -16,14 +16,12 @@
  * SPDX-License-Identifier: GPL-2.0-or-later
  */
 
-const { Meta, Shell } = imports.gi;
-const Main = imports.ui.main;
-const ExtensionUtils = imports.misc.extensionUtils;
+import Meta from 'gi://Meta';
+import Shell from 'gi://Shell';
+import * as Main from 'resource:///org/gnome/shell/ui/main.js';
+import {Extension} from 'resource:///org/gnome/shell/extensions/extension.js';
 
-class Extension {
-    constructor() {
-    }
-
+export default class WindowCenterExtension extends Extension {
     centerWindow() {
       global.get_window_actors().every((w) => {
         if (w.meta_window.has_focus()) {
@@ -60,7 +58,7 @@ class Extension {
     }
 
     enable() {
-      let settings = ExtensionUtils.getSettings("org.gnome.shell.extensions.com-thorstenball-windowcenter");
+      let settings = this.getSettings("org.gnome.shell.extensions.com-thorstenball-windowcenter");
 
       let mode = Shell.ActionMode.NORMAL;
       let flag = Meta.KeyBindingFlags.NONE;
@@ -71,8 +69,4 @@ class Extension {
     disable() {
       Main.wm.removeKeybinding("center-window");
     }
-}
-
-function init() {
-    return new Extension();
 }

@@ -3,6 +3,6 @@
   "description": "Make windows 80% of screen size and center them",
   "uuid": "windowcenter@thorstenball.com",
   "shell-version": [
-    "42"
+    "45"
   ]
 }
